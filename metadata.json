@@ -1,0 +1,6 @@
+{
+  "name": "monedaire",
+  "description": "Lanzamiento de monedaire con tres resultados y registro de dudas",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
