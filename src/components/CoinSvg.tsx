@@ -8,10 +8,10 @@ interface CoinSvgProps {
 }
 
 const COIN_IMAGES: Record<CoinResult, string> = {
-  empty: 'https://lorenalandia.fun/wp-content/uploads/2026/08/COIN_EMPTY.png',
-  up: 'https://lorenalandia.fun/wp-content/uploads/2026/08/coin.png',
-  down: 'https://lorenalandia.fun/wp-content/uploads/2026/08/coindown.png',
-  question: 'https://lorenalandia.fun/wp-content/uploads/2026/08/COIN_INT.png',
+  empty: 'https://sandboxlandia.online/wp-content/uploads/2026/08/QUESTION.png',
+  up: 'https://sandboxlandia.online/wp-content/uploads/2026/08/YES.png',
+  down: 'https://sandboxlandia.online/wp-content/uploads/2026/08/NO.png',
+  question: 'https://sandboxlandia.online/wp-content/uploads/2026/08/QUESTION.png',
 };
 
 export const CoinSvg: React.FC<CoinSvgProps> = ({

@@ -21,11 +21,11 @@ const formatDate = (timestamp?: number) => {
 
 export const LogList: React.FC<LogListProps> = ({ logs, onUpdateTopic, t }) => {
   return (
-    <div className="w-full mt-4 flex flex-col items-center">
-      {/* Section Header with full screen width border */}
-      <div className="w-full border-t border-b border-[#1b1b3a] py-2">
+    <div className="w-full flex flex-col items-center">
+      {/* Section Header with full screen width border and #bae9ee background */}
+      <div className="w-full border-b border-black py-2 bg-[#bae9ee]">
         <div className="w-full max-w-md mx-auto px-4 sm:px-6">
-          <h2 className="text-lg sm:text-xl tracking-wide text-[#1b1b3a] font-normal lowercase select-none">
+          <h2 className="font-viaoda text-lg sm:text-xl tracking-wide text-black font-normal lowercase select-none">
             {t.logs.header}
           </h2>
         </div>
@@ -35,8 +35,8 @@ export const LogList: React.FC<LogListProps> = ({ logs, onUpdateTopic, t }) => {
       <div className="w-full">
         <AnimatePresence initial={false}>
           {logs.length === 0 ? (
-            <div className="w-full border-b border-[#1b1b3a]">
-              <div className="w-full max-w-md mx-auto py-8 text-center text-[#1b1b3a]/50 text-base italic px-4 lowercase">
+            <div className="w-full border-b border-black">
+              <div className="w-full max-w-md mx-auto py-8 text-center text-black/50 text-base italic px-4 lowercase">
                 {t.logs.empty}
               </div>
             </div>
@@ -48,12 +48,12 @@ export const LogList: React.FC<LogListProps> = ({ logs, onUpdateTopic, t }) => {
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.35, ease: 'easeOut' }}
-                className="w-full border-b border-[#1b1b3a] hover:bg-[#1b1b3a]/[0.02] transition-colors"
+                className="w-full border-b border-black hover:bg-black/[0.02] transition-colors"
               >
                 <div className="w-full max-w-md mx-auto flex items-center justify-between py-4 px-4 sm:px-6 gap-3">
                   {/* Left Side: Date + Topic Input Field */}
                   <div className="flex-1 flex items-center gap-3 min-w-0">
-                    <span className="text-sm text-[#1b1b3a]/65 select-none whitespace-nowrap tracking-wide font-normal">
+                    <span className="text-sm text-black/65 select-none whitespace-nowrap tracking-wide font-normal">
                       {formatDate(entry.timestamp)}
                     </span>
 
@@ -62,7 +62,7 @@ export const LogList: React.FC<LogListProps> = ({ logs, onUpdateTopic, t }) => {
                       value={entry.topic}
                       onChange={(e) => onUpdateTopic(entry.id, e.target.value)}
                       placeholder={t.logs.placeholder}
-                      className="w-full bg-transparent text-[#1b1b3a] placeholder-[#1b1b3a]/45 text-base sm:text-lg focus:outline-none focus:border-b focus:border-[#1b1b3a]/40 transition-colors py-1 lowercase"
+                      className="w-full bg-transparent text-black placeholder-black/45 text-base sm:text-lg focus:outline-none focus:border-b focus:border-black/40 transition-colors py-1 lowercase"
                     />
                   </div>
 

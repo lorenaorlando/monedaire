@@ -118,24 +118,36 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#fffdee] text-[#1b1b3a] flex flex-col items-center justify-start pb-16 overflow-x-hidden">
-      {/* Top Header with spacious horizontal padding */}
-      <header className="w-full pt-6 pb-4 px-4 sm:px-8 flex items-center justify-between gap-2">
-        {/* Title */}
-        <h1 className="text-2xl sm:text-4xl md:text-5xl font-normal tracking-tight text-[#1b1b3a] select-none lowercase truncate">
-          {t.title}
-        </h1>
+    <div className="min-h-screen w-full bg-white text-black flex flex-col items-center justify-start pb-16 overflow-x-hidden">
+      {/* Top Header with spacious horizontal padding, background in #bae9ee */}
+      <header className="w-full bg-[#bae9ee] py-3.5 sm:py-4 px-4 sm:px-8 flex items-center justify-between gap-3">
+        {/* Title + by logo */}
+        <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+          <h1 className="font-viaoda text-2xl sm:text-4xl md:text-5xl font-normal tracking-tight text-black select-none lowercase truncate">
+            {t.title}
+          </h1>
+          <div className="flex items-center gap-2 select-none pt-1 sm:pt-1.5 flex-shrink-0">
+            <span className="font-normal text-sm sm:text-base text-black lowercase">by</span>
+            <img
+              src="https://sandboxlandia.online/wp-content/uploads/2026/08/PRAGMAGICKA_LOGO-1.png"
+              alt="Pragmagicka"
+              referrerPolicy="no-referrer"
+              className="h-8 sm:h-10 md:h-12 w-auto object-contain inline-block"
+              loading="eager"
+            />
+          </div>
+        </div>
 
         {/* Right side controls: ESP - ENG switch toggle + Info button */}
         <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
           {/* Language Switch Toggle */}
-          <div className="flex items-center border border-[#1b1b3a] rounded-[40px] p-0.5 bg-[#fffdee] select-none">
+          <div className="font-viaoda flex items-center border border-black rounded-[40px] p-0.5 bg-white select-none">
             <button
               onClick={() => setLang('esp')}
               className={`px-2.5 sm:px-3 py-1 rounded-[40px] text-xs sm:text-sm font-normal tracking-wider transition-all cursor-pointer ${
                 lang === 'esp'
-                  ? 'bg-[#1b1b3a] text-[#fffdee] shadow-xs'
-                  : 'text-[#1b1b3a] hover:bg-[#1b1b3a]/5'
+                  ? 'bg-black text-white shadow-xs'
+                  : 'text-black hover:bg-black/5'
               }`}
             >
               ESP
@@ -144,18 +156,18 @@ export default function App() {
               onClick={() => setLang('eng')}
               className={`px-2.5 sm:px-3 py-1 rounded-[40px] text-xs sm:text-sm font-normal tracking-wider transition-all cursor-pointer ${
                 lang === 'eng'
-                  ? 'bg-[#1b1b3a] text-[#fffdee] shadow-xs'
-                  : 'text-[#1b1b3a] hover:bg-[#1b1b3a]/5'
+                  ? 'bg-black text-white shadow-xs'
+                  : 'text-black hover:bg-black/5'
               }`}
             >
               ENG
             </button>
           </div>
 
-          {/* Info Button */}
+          {/* Info Button with yellow background (#ffff0f) */}
           <button
             onClick={() => setIsInfoOpen(true)}
-            className="px-4 sm:px-5 py-1.5 bg-[#fffdee] text-[#1b1b3a] border border-[#1b1b3a] rounded-[40px] text-sm sm:text-base font-normal tracking-wide lowercase cursor-pointer hover:bg-[#1b1b3a]/5 shadow-sm transition-all focus:outline-none"
+            className="font-viaoda px-4 sm:px-5 py-1.5 bg-[#ffff0f] text-black border border-black rounded-[40px] text-sm sm:text-base font-normal tracking-wide lowercase cursor-pointer hover:brightness-95 active:brightness-90 shadow-sm transition-all focus:outline-none"
           >
             {t.infoButton}
           </button>
@@ -174,7 +186,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Header divider line going completely from edge to edge of the screen */}
-      <div className="w-full border-b border-[#1b1b3a]" />
+      <div className="w-full border-b border-black" />
 
       {/* Central Coin Section */}
       <main className="w-full max-w-md mx-auto flex flex-col items-center justify-center py-6 px-4">
@@ -183,19 +195,6 @@ export default function App() {
           isFlipping={isFlipping}
           t={t}
         />
-
-        {/* Action Button: LANZAR / FLIP */}
-        <div className="mt-2 mb-2 flex justify-center w-full">
-          <motion.button
-            onClick={handleFlip}
-            disabled={isFlipping}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="w-48 sm:w-52 py-3 bg-[#fffdee] text-[#1b1b3a] border border-[#1b1b3a] rounded-[40px] text-lg sm:text-xl font-normal tracking-widest uppercase cursor-pointer disabled:opacity-60 shadow-[0_4px_12px_rgba(27,27,58,0.12)] transition-all focus:outline-none"
-          >
-            {isFlipping ? t.flippingButton : t.flipButton}
-          </motion.button>
-        </div>
       </main>
 
       {/* Reflection Section spanning from edge to edge of the screen */}
@@ -207,8 +206,23 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Bottom Log History Section with full-screen edge-to-edge dividing lines */}
-      <section className="w-full mt-4">
+      {/* Action Strip (LANZAR #ffff0f) directly attached to Log History Section (#bae9ee) */}
+      <section className="w-full mt-4 flex flex-col">
+        {/* Full-width Yellow Strip (#ffff0f) */}
+        <motion.button
+          onClick={handleFlip}
+          disabled={isFlipping}
+          whileTap={{ scale: 0.998 }}
+          className="w-full bg-[#ffff0f] text-black border-t border-b border-black py-2.5 px-4 cursor-pointer disabled:opacity-80 hover:brightness-95 active:brightness-90 transition-all select-none text-center block focus:outline-none"
+        >
+          <div className="w-full max-w-md mx-auto px-4 sm:px-6">
+            <span className="font-viaoda text-lg sm:text-xl tracking-widest uppercase font-normal text-black block">
+              {isFlipping ? t.flippingButton : t.flipButton}
+            </span>
+          </div>
+        </motion.button>
+
+        {/* Log History Section attached directly below */}
         <LogList logs={logs} onUpdateTopic={handleUpdateTopic} t={t} />
       </section>
     </div>

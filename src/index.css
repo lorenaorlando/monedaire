@@ -2,20 +2,24 @@
 
 @layer base {
   * {
-    font-family: 'Viaoda Libre', serif;
+    font-family: 'DM Sans', sans-serif;
   }
   
   body {
-    background-color: #fffdee;
-    color: #1b1b3a;
-    font-family: 'Viaoda Libre', serif;
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'DM Sans', sans-serif;
     margin: 0;
     padding: 0;
   }
 
   input, button, textarea, select {
-    font-family: 'Viaoda Libre', serif;
+    font-family: 'DM Sans', sans-serif;
   }
+}
+
+.font-viaoda {
+  font-family: 'Viaoda Libre', serif !important;
 }
 
 /* Custom 3D coin perspective & flip physics */
@@ -31,4 +35,3 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
-

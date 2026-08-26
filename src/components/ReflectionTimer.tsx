@@ -64,47 +64,48 @@ export const ReflectionTimer: React.FC<ReflectionTimerProps> = ({ onFinish, t })
   return (
     <div className="w-full flex flex-col items-center justify-center">
       {!isActive ? (
-        <div className="py-2 flex justify-center w-full">
-          <motion.button
-            onClick={handleStart}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="px-6 py-2.5 bg-[#fffdee] text-[#1b1b3a] border border-[#1b1b3a] rounded-[40px] text-sm sm:text-base font-normal tracking-wide lowercase cursor-pointer hover:bg-[#1b1b3a]/5 transition-colors shadow-sm focus:outline-none"
-          >
-            {t.reflection.startBtn}
-          </motion.button>
-        </div>
+        <motion.button
+          onClick={handleStart}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          whileTap={{ scale: 0.998 }}
+          className="w-full bg-[#bae9ee] text-black border-t border-b border-black py-2.5 px-4 cursor-pointer hover:brightness-95 active:brightness-90 transition-all select-none text-center block focus:outline-none"
+        >
+          <div className="w-full max-w-md mx-auto px-4 sm:px-6">
+            <span className="font-viaoda text-lg sm:text-xl tracking-wide lowercase font-normal text-black block">
+              {t.reflection.startBtn}
+            </span>
+          </div>
+        </motion.button>
       ) : (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.35 }}
-          className="w-full border-t border-b border-[#1b1b3a] py-6 sm:py-8 bg-transparent"
+          className="w-full border-t border-b border-black py-6 sm:py-8 bg-[#bae9ee]"
         >
           <div className="w-full max-w-md mx-auto px-4 sm:px-6 flex flex-col items-center justify-center text-center">
-            {/* Timer countdown with same typography */}
+            {/* Timer countdown with DM Sans */}
             <div className="flex items-center justify-center gap-2 mb-3">
-              <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#1b1b3a] animate-pulse" />
-              <span className="text-3xl sm:text-4xl font-normal tracking-widest text-[#1b1b3a]">
+              <span className="inline-block w-2.5 h-2.5 rounded-full bg-black animate-pulse" />
+              <span className="text-3xl sm:text-4xl font-normal tracking-widest text-black">
                 {formattedTime}
               </span>
             </div>
 
             {/* Subtle progress indicator */}
-            <div className="w-full max-w-xs bg-[#1b1b3a]/15 h-1 rounded-full overflow-hidden mb-4">
+            <div className="w-full max-w-xs bg-black/15 h-1 rounded-full overflow-hidden mb-4">
               <motion.div
-                className="h-full bg-[#1b1b3a]"
+                className="h-full bg-black"
                 initial={{ width: '100%' }}
                 animate={{ width: `${(timeLeft / 60) * 100}%` }}
                 transition={{ duration: 1, ease: 'linear' }}
               />
             </div>
 
-            {/* Rotating Question with smooth transition */}
+            {/* Rotating Question with smooth transition in DM Sans */}
             <div className="min-h-[4rem] flex items-center justify-center px-2 py-1">
               <AnimatePresence mode="wait">
                 <motion.p
@@ -113,7 +114,7 @@ export const ReflectionTimer: React.FC<ReflectionTimerProps> = ({ onFinish, t })
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.4 }}
-                  className="text-lg sm:text-xl text-[#1b1b3a] font-normal leading-relaxed lowercase"
+                  className="text-lg sm:text-xl text-black font-normal leading-relaxed lowercase"
                 >
                   {reflectionQuestions[questionIndex]}
                 </motion.p>
@@ -123,7 +124,7 @@ export const ReflectionTimer: React.FC<ReflectionTimerProps> = ({ onFinish, t })
             {/* Close button */}
             <button
               onClick={handleReset}
-              className="mt-3 text-xs sm:text-sm text-[#1b1b3a]/60 hover:text-[#1b1b3a] underline underline-offset-2 transition-colors lowercase cursor-pointer"
+              className="mt-3 text-xs sm:text-sm text-black/70 hover:text-black underline underline-offset-2 transition-colors lowercase cursor-pointer"
             >
               {t.reflection.closeBtn}
             </button>

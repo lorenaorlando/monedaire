@@ -8,7 +8,7 @@ interface InfoModalProps {
   onClose: () => void;
   t: Translations;
 }
- 
+
 export const InfoModal: React.FC<InfoModalProps> = ({ isOpen, onClose, t }) => {
   if (!isOpen) return null;
 
@@ -18,7 +18,7 @@ export const InfoModal: React.FC<InfoModalProps> = ({ isOpen, onClose, t }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.25 }}
-      className="fixed inset-0 z-50 bg-[#1b1b3a]/30 backdrop-blur-[2px] flex flex-col justify-start"
+      className="fixed inset-0 z-50 bg-black/30 backdrop-blur-[2px] flex flex-col justify-start"
       onClick={onClose}
     >
       <motion.div
@@ -27,25 +27,25 @@ export const InfoModal: React.FC<InfoModalProps> = ({ isOpen, onClose, t }) => {
         exit={{ y: '-100%' }}
         transition={{ type: 'spring', damping: 28, stiffness: 260 }}
         onClick={(e) => e.stopPropagation()}
-        className="w-full bg-[#fffdee] text-[#1b1b3a] border-b border-[#1b1b3a] shadow-xl overflow-y-auto max-h-[92vh] flex flex-col"
+        className="w-full bg-white text-black border-b border-black shadow-xl overflow-y-auto max-h-[92vh] flex flex-col"
       >
         {/* Header inside Info Panel with generous horizontal padding */}
-        <div className="w-full border-b border-[#1b1b3a] py-4 px-4 sm:px-8 flex items-center justify-between">
-          <span className="text-xl sm:text-2xl font-normal tracking-tight lowercase select-none">
+        <div className="w-full bg-[#bae9ee] border-b border-black py-4 px-4 sm:px-8 flex items-center justify-between">
+          <span className="font-viaoda text-xl sm:text-2xl font-normal tracking-tight lowercase select-none">
             {t.infoModal.header}
           </span>
           <button
             onClick={onClose}
-            className="px-4 py-1.5 bg-[#fffdee] text-[#1b1b3a] border border-[#1b1b3a] rounded-[40px] text-sm sm:text-base font-normal tracking-wide lowercase cursor-pointer hover:bg-[#1b1b3a]/5 transition-colors shadow-sm focus:outline-none flex items-center gap-1.5"
+            className="font-viaoda px-4 py-1.5 bg-[#ffff0f] text-black border border-black rounded-[40px] text-sm sm:text-base font-normal tracking-wide lowercase cursor-pointer hover:brightness-95 active:brightness-90 transition-all shadow-sm focus:outline-none flex items-center gap-1.5"
           >
             <span>{t.infoModal.author.length ? t.closeButton : 'cerrar'}</span>
             <X size={16} />
           </button>
         </div>
 
-        {/* Info Content */}
-        <div className="w-full max-w-xl mx-auto px-6 py-8 sm:py-10 space-y-6 text-base sm:text-lg leading-relaxed text-[#1b1b3a]/90 font-normal">
-          <p className="font-normal text-lg sm:text-xl text-[#1b1b3a]">
+        {/* Info Content with DM Sans */}
+        <div className="w-full max-w-xl mx-auto px-6 py-8 sm:py-10 space-y-6 text-base sm:text-lg leading-relaxed text-black/90 font-normal">
+          <p className="font-normal text-lg sm:text-xl text-black">
             {t.infoModal.title}
           </p>
 

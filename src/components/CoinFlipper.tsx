@@ -19,7 +19,7 @@ export const CoinFlipper: React.FC<CoinFlipperProps> = ({
     <div className="flex flex-col items-center justify-center w-full my-2">
       {/* Instructions above the coin */}
       <div className="w-full max-w-sm mb-4 text-center select-none">
-        <ol className="text-sm sm:text-base text-[#1b1b3a]/90 font-normal leading-relaxed space-y-0.5 lowercase">
+        <ol className="text-sm sm:text-base text-black/90 font-normal leading-relaxed space-y-0.5 lowercase">
           <li>{t.instructions.step1}</li>
           <li>{t.instructions.step2}</li>
           <li>{t.instructions.step3}</li>
@@ -66,7 +66,7 @@ export const CoinFlipper: React.FC<CoinFlipperProps> = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.3 }}
-              className="text-base sm:text-lg font-normal text-[#1b1b3a] tracking-wide lowercase"
+              className="text-base sm:text-lg font-normal text-black tracking-wide lowercase"
             >
               {t.questionOutcomeSubtitle}
             </motion.p>
