@@ -66,11 +66,8 @@ export const ReflectionTimer: React.FC<ReflectionTimerProps> = ({ onFinish, t })
       {!isActive ? (
         <motion.button
           onClick={handleStart}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
           whileTap={{ scale: 0.998 }}
-          className="w-full bg-[#bae9ee] text-black border-t border-b border-black py-2.5 px-4 cursor-pointer hover:brightness-95 active:brightness-90 transition-all select-none text-center block focus:outline-none"
+          className="w-full bg-[#bae9ee] text-black border-t border-black py-2.5 px-4 cursor-pointer hover:brightness-95 active:brightness-90 transition-all select-none text-center block focus:outline-none"
         >
           <div className="w-full max-w-md mx-auto px-4 sm:px-6">
             <span className="font-viaoda text-lg sm:text-xl tracking-wide lowercase font-normal text-black block">
@@ -84,7 +81,7 @@ export const ReflectionTimer: React.FC<ReflectionTimerProps> = ({ onFinish, t })
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.35 }}
-          className="w-full border-t border-b border-black py-6 sm:py-8 bg-[#bae9ee]"
+          className="w-full border-t border-black py-6 sm:py-8 bg-[#bae9ee]"
         >
           <div className="w-full max-w-md mx-auto px-4 sm:px-6 flex flex-col items-center justify-center text-center">
             {/* Timer countdown with DM Sans */}

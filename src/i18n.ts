@@ -60,7 +60,7 @@ export const translations: Record<Language, Translations> = {
       ],
     },
     logs: {
-      header: 'registra tus dudas',
+      header: 'toma nota de tus preguntas',
       placeholder: 'tu pregunta',
       empty: 'aún no hay tiradas registradas. presiona lanzar para comenzar.',
     },
@@ -99,7 +99,7 @@ export const translations: Record<Language, Translations> = {
       ],
     },
     logs: {
-      header: 'record your doubts',
+      header: 'log your questions',
       placeholder: 'your question',
       empty: 'no flips recorded yet. press flip to begin.',
     },

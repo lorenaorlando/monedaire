@@ -16,9 +16,9 @@ export const CoinFlipper: React.FC<CoinFlipperProps> = ({
   t,
 }) => {
   return (
-    <div className="flex flex-col items-center justify-center w-full my-2">
+    <div className="flex flex-col items-center justify-center w-full mt-1 mb-0">
       {/* Instructions above the coin */}
-      <div className="w-full max-w-sm mb-4 text-center select-none">
+      <div className="w-full max-w-sm mb-3 text-center select-none">
         <ol className="text-sm sm:text-base text-black/90 font-normal leading-relaxed space-y-0.5 lowercase">
           <li>{t.instructions.step1}</li>
           <li>{t.instructions.step2}</li>
@@ -57,22 +57,22 @@ export const CoinFlipper: React.FC<CoinFlipperProps> = ({
       </div>
 
       {/* Subtitle text below coin: ONLY visible when NOT flipping AND outcome is 'question' */}
-      <div className="h-9 mt-4 flex items-center justify-center text-center px-4">
-        <AnimatePresence mode="wait">
-          {!isFlipping && currentResult === 'question' && (
-            <motion.p
-              key="question-text"
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.3 }}
-              className="text-base sm:text-lg font-normal text-black tracking-wide lowercase"
-            >
+      <AnimatePresence mode="wait">
+        {!isFlipping && currentResult === 'question' && (
+          <motion.div
+            key="question-text"
+            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+            animate={{ opacity: 1, height: 'auto', marginTop: 12 }}
+            exit={{ opacity: 0, height: 0, marginTop: 0 }}
+            transition={{ duration: 0.3 }}
+            className="flex items-center justify-center text-center px-4 overflow-hidden"
+          >
+            <p className="text-base sm:text-lg font-normal text-black tracking-wide lowercase py-1">
               {t.questionOutcomeSubtitle}
-            </motion.p>
-          )}
-        </AnimatePresence>
-      </div>
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

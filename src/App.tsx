@@ -189,7 +189,7 @@ export default function App() {
       <div className="w-full border-b border-black" />
 
       {/* Central Coin Section */}
-      <main className="w-full max-w-md mx-auto flex flex-col items-center justify-center py-6 px-4">
+      <main className="w-full max-w-md mx-auto flex flex-col items-center justify-center pt-3 pb-5 px-4">
         <CoinFlipper
           currentResult={currentResult}
           isFlipping={isFlipping}
@@ -197,17 +197,24 @@ export default function App() {
         />
       </main>
 
-      {/* Reflection Section spanning from edge to edge of the screen */}
-      <AnimatePresence>
-        {hasFlippedOnce && !isFlipping && currentResult !== 'empty' && (
-          <section className="w-full my-2">
-            <ReflectionTimer key="reflection-timer" t={t} />
-          </section>
-        )}
-      </AnimatePresence>
+      {/* Action and Log Section (Reflection + LANZAR + Log List stacked with no gap) */}
+      <section className="w-full flex flex-col">
+        {/* Reflection Section attached directly above LANZAR */}
+        <AnimatePresence>
+          {hasFlippedOnce && !isFlipping && currentResult !== 'empty' && (
+            <motion.div
+              key="reflection-section"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="w-full overflow-hidden"
+            >
+              <ReflectionTimer key="reflection-timer" t={t} />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-      {/* Action Strip (LANZAR #ffff0f) directly attached to Log History Section (#bae9ee) */}
-      <section className="w-full mt-4 flex flex-col">
         {/* Full-width Yellow Strip (#ffff0f) */}
         <motion.button
           onClick={handleFlip}

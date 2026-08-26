@@ -25,7 +25,7 @@ export const LogList: React.FC<LogListProps> = ({ logs, onUpdateTopic, t }) => {
       {/* Section Header with full screen width border and #bae9ee background */}
       <div className="w-full border-b border-black py-2 bg-[#bae9ee]">
         <div className="w-full max-w-md mx-auto px-4 sm:px-6">
-          <h2 className="font-viaoda text-lg sm:text-xl tracking-wide text-black font-normal lowercase select-none">
+          <h2 className="font-viaoda text-lg sm:text-xl tracking-wide text-black font-normal lowercase select-none text-center">
             {t.logs.header}
           </h2>
         </div>
